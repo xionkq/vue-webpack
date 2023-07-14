@@ -1,14 +1,17 @@
-<!--
-跟 Vue 说 Hello World！
--->
+<!--<script setup>-->
+<!--import { ref } from 'vue'-->
 
-<script setup>
-import { ref } from 'vue'
+<!--const message = ref('Hello World!')-->
+<!--</script>-->
 
-// “ref”是用来存储值的响应式数据源。
-// 理论上我们在展示该字符串的时候不需要将其包装在 ref() 中，
-// 但是在下一个示例中更改这个值的时候，我们就需要它了。
-const message = ref('Hello World!')
+<script>
+export default {
+  data() {
+    return {
+      message: 1
+    }
+  }
+}
 </script>
 
 <template>
