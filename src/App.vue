@@ -16,6 +16,7 @@ export default {
 
 <template>
   <h1>{{ message }}</h1>
+  <router-view></router-view>
 </template>
 
 <style>
