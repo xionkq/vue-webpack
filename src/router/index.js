@@ -1,4 +1,5 @@
 import home from  '../components/Home.vue'
+import page from  '../components/Page.vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
@@ -9,6 +10,10 @@ const routes = [
     {
         path: '/home',
         component: home
+    },
+    {
+        path: '/page',
+        component: page
     }
 ]
 

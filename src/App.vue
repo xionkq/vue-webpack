@@ -1,22 +1,39 @@
-<!--<script setup>-->
-<!--import { ref } from 'vue'-->
+<script setup>
+// composition api
+import { ref } from 'vue'
+import router from './router'
 
-<!--const message = ref('Hello World!')-->
-<!--</script>-->
+const message = ref('Hello World!')
 
-<script>
-export default {
-  data() {
-    return {
-      message: 1
-    }
-  }
+function goPage() {
+  router.push('page')
+}
+
+function goHome() {
+  router.push('home')
 }
 </script>
 
+<!--<script>-->
+<!--// options api-->
+<!--export default {-->
+<!--  data() {-->
+<!--    return {-->
+<!--      message: 1-->
+<!--    }-->
+<!--  }-->
+<!--}-->
+<!--</script>-->
+
 <template>
-  <h1>{{ message }}</h1>
-  <router-view></router-view>
+  <h1 @click="goPage">{{ message }}</h1>
+  <h1 @click="goHome">{{ message }}</h1>
+  <router-view v-slot="{ Component }" class="router-view">
+    <keep-alive>
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
+
 </template>
 
 <style>
