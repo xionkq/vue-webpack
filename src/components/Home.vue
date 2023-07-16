@@ -44,6 +44,12 @@ const a = reactive({
   <div ref="divRef" v-if="$slots">{{ message }}</div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+div {
+  --color: #000000;
+  $color: #000000;
 
+  color: var(--color);
+  background: $color;
+}
 </style>

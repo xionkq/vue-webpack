@@ -19,6 +19,10 @@ const config = {
             {
                 test: /\.css$/,       // 文件扩展名 .css 的正则表达式
                 use: ['vue-style-loader', 'css-loader']   // 使用 vue-style-loader、css-loader 加载器
+            },
+            {
+                test: /\.scss$/,
+                use: ['vue-style-loader', 'css-loader', 'sass-loader']
             }
         ]
     },

@@ -26,6 +26,8 @@
   "dependencies": {
     "css-loader": "^6.8.1",
     "html-webpack-plugin": "^5.5.3",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
     "vue": "^3.3.4",
     "vue-loader": "^17.1.0",
     "vue-router": "^4.2.4",
