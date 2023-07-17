@@ -3,6 +3,7 @@
 import { ref } from 'vue'
 import router from './router'
 import WebSocket from './components/WebSocket.vue'
+import WebWorker from './components/WebWorker.vue'
 
 const message = ref('Hello World!')
 
@@ -29,7 +30,8 @@ function goHome() {
 <template>
   <h1 @click="goPage">{{ message }}</h1>
   <h1 @click="goHome">{{ message }}</h1>
-  <WebSocket></WebSocket>
+<!--  <WebSocket></WebSocket>-->
+  <WebWorker></WebWorker>
   <router-view v-slot="{ Component }" class="router-view">
     <keep-alive>
       <component :is="Component" />

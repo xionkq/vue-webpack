@@ -7,6 +7,7 @@ const config = {
     mode: 'development',
     entry: './src/main.js',
     output: {
+        publicPath: '/',
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
     },
@@ -23,7 +24,14 @@ const config = {
             {
                 test: /\.scss$/,
                 use: ['vue-style-loader', 'css-loader', 'sass-loader']
-            }
+            },
+            {
+                test: /\.worker.js$/,
+                use: {
+                    loader: 'worker-loader',
+                    options: { inline: 'no-fallback' }
+                }
+            },
         ]
     },
     // resolve: {
