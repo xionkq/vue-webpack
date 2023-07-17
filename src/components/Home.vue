@@ -56,6 +56,6 @@ div {
   $color: #000000;
 
   color: var(--color);
-  background: $color;
+  //background: $color;
 }
 </style>
