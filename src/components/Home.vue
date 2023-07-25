@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {nextTick, onActivated, onBeforeMount, onDeactivated, onMounted, reactive, ref, getCurrentInstance} from "vue";
-import {useCounterStore} from "../store/counter";
+import {useCounterStore} from "@/store/counter";
 
 let divRef = ref('')
 const message = ref('home')

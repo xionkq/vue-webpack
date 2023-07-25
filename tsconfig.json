@@ -7,6 +7,7 @@
     "noImplicitAny": true,  // 当未指定类型时，不允许隐式的any类型。
     "removeComments": true,  // 在生成的JavaScript中删除注释。
     "sourceMap": true,  // 生成相应的.map文件，用于在调试时映射到原始TypeScript代码。
+    "allowSyntheticDefaultImports": true,
     "paths": {  // 解析导入路径是，将路径中的@替换为目标路径
       "@/*": [
         "src/*"

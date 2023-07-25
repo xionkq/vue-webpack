@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import {onBeforeMount, onMounted, ref} from "vue";
 
 const divRef = ref('')

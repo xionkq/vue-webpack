@@ -1,20 +1,20 @@
-import home from  '../components/Home.vue'
-import page from  '../components/Page.vue'
+// import home from '@/components/Home.vue'
+// import page from '@/components/Page.vue'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
-const routes: Array<RouteRecordRaw> = [
+const routes = [
     {
         path: '/',
         redirect: '/home'
     },
-    {
-        path: '/home',
-        component: home
-    },
-    {
-        path: '/page',
-        component: page
-    }
+    // {
+    //     path: '/home',
+    //     component: home
+    // },
+    // {
+    //     path: '/page',
+    //     component: page
+    // }
 ]
 
 const router = createRouter({

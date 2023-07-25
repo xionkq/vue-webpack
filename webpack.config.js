@@ -37,11 +37,14 @@ const config = {
                 loader: 'ts-loader',
                 exclude: /node_modules/,
                 options: {
-                    appendTsxSuffixTo: [/\.vue$/],  // ts不知道如何处理.vue结尾文件，需加此配置
-                    happyPackMode: true  // 开启多线程，加快编译
+                    happyPackMode: true,  // 开启多线程，加快编译
+                    appendTsSuffixTo: [/\.vue$/]  // ts不知道如何处理.vue结尾文件，需加此配置
                 }
             }
         ]
+    },
+    resolve: {  // 模块解析时尝试自动解析的文件扩展名，因此在模块导入时可以省略以下扩展名
+        extensions: ['.ts', '.tsx', '.js'],
     },
     plugins: [
         new VueLoaderPlugin(),
