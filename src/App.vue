@@ -1,12 +1,32 @@
 <script setup lang="ts">
 // composition api
-import { ref } from 'vue'
-import router from './router'
+import {computed, ref} from 'vue'
+import router, { ROUTE } from './router'
 import WebSocket from './components/WebSocket.vue'
 import WebWorker from './components/WebWorker.vue'
 import SemanticTag from './components/SemanticTag.vue'
 
-const message = ref('Hello World!')
+const key = ref('')
+
+const activeKey = computed({
+  get: () => {
+    return key.value
+  },
+  set: (v: ROUTE) => {
+    key.value = v
+    router.push(v)
+  }
+})
+
+const tabs = computed(() => {
+  const obj: { name: string }[] = []
+  for (const [key, value] of Object.entries(ROUTE)) {
+    obj.push({
+      name: value
+    })
+  }
+  return obj
+})
 
 function goPage() {
   router.push('page')
@@ -17,20 +37,8 @@ function goHome() {
 }
 </script>
 
-<!--<script>-->
-<!--// options api-->
-<!--export default {-->
-<!--  data() {-->
-<!--    return {-->
-<!--      message: 1-->
-<!--    }-->
-<!--  }-->
-<!--}-->
-<!--</script>-->
-
 <template>
-  <h1 @click="goPage">{{ message }}</h1>
-  <h1 @click="goHome">{{ message }}</h1>
+  <div v-for="item of tabs" @click="activeKey = item.name">{{item.name}}</div>
 <!--  <WebSocket></WebSocket>-->
 <!--  <WebWorker></WebWorker>-->
   <SemanticTag></SemanticTag>

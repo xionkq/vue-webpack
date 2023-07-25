@@ -1,20 +1,28 @@
-// import home from '@/components/Home.vue'
-// import page from '@/components/Page.vue'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+
+export enum ROUTE {
+    HOME = 'home',
+    PAGE = 'page',
+    SEMANTIC_TAG = 'semantic-tag',
+    WEB_SOCKET = 'web-socket',
+    WEB_WORK = 'web-work',
+}
 
 const routes = [
     {
         path: '/',
         redirect: '/home'
     },
-    // {
-    //     path: '/home',
-    //     component: home
-    // },
-    // {
-    //     path: '/page',
-    //     component: page
-    // }
+    {
+        path: '/home',
+        name: ROUTE.HOME,
+        component: () => import('@/components/Home.vue')
+    },
+    {
+        path: '/page',
+        name: ROUTE.PAGE,
+        component: () => import('@/components/Page.vue')
+    }
 ]
 
 const router = createRouter({

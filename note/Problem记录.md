@@ -10,7 +10,7 @@
 
 4. TS2307: Cannot find module './App.vue' or its corresponding type declarations.  
 原因：可以正常运行，但ts不认识.vue扩展名，需要新增配置。使用vite似乎有内置的配置？。（TODO）  
-解决：在src目录下新建vue-shim.d.ts文件用于告诉ts，.vue文件就有vue模块去处理。
+解决：在src目录下新建shims-vue.d.ts文件用于告诉ts，.vue文件就有vue模块去处理。需要注意的是，vue3和vue2的写法并不一致。
 
 5. Module not found: Error: Can't resolve './router' in 'D:\github\github-personal\vue-webpack\src'  
 原因：在router目录下我使用了index.ts文件作为router文件。当未声明目录中文件时，会默认去查找目录下index，index.js，index.json文件，而这在我项目中都没有，因此找不到导入的'./router'文件。  
@@ -20,3 +20,7 @@ resolve: {
     extensions: ['.ts', '.tsx', '.js'],
 },
 ```
+
+6. Can't resolve '@/components/Page.vue'
+原因：ts可以解析@路径，但是webpack无法解析。  
+解决：因此需要在webpack中也配置上。
