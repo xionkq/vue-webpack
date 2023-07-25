@@ -1,8 +1,8 @@
-<script setup>
+<script setup lang="ts">
 import {nextTick, onActivated, onBeforeMount, onDeactivated, onMounted, reactive, ref, getCurrentInstance} from "vue";
 import {useCounterStore} from "../store/counter";
 
-let divRef = ''
+let divRef = ref('')
 const message = ref('home')
 
 // // 钩子函数
@@ -47,7 +47,8 @@ console.log(counterStore.computedX)
 </script>
 
 <template>
-  <div ref="divRef" v-if="$slots">{{ message }}</div>
+<!--  <div ref="divRef" v-if="$slots">{{ message }}</div>-->
+  <div ref="divRef">{{ message }}</div>
 </template>
 
 <style scoped lang="scss">

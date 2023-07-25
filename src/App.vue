@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 // composition api
 import { ref } from 'vue'
 import router from './router'

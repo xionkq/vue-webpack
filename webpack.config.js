@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const config = {
     mode: 'development',
-    entry: './src/main.js',
+    entry: './src/main.ts',
     output: {
         publicPath: '/',
         path: path.resolve(__dirname, 'dist'),
@@ -32,14 +32,17 @@ const config = {
                     options: { inline: 'no-fallback' }
                 }
             },
+            {
+                test: /\.(ts|tsx)?$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+                options: {
+                    appendTsxSuffixTo: [/\.vue$/],  // ts不知道如何处理.vue结尾文件，需加此配置
+                    happyPackMode: true  // 开启多线程，加快编译
+                }
+            }
         ]
     },
-    // resolve: {
-    //     extensions: [
-    //         '.js',
-    //         '.vue'
-    //     ]
-    // },
     plugins: [
         new VueLoaderPlugin(),
         new HtmlWebpackPlugin({
