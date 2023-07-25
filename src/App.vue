@@ -1,10 +1,6 @@
 <script setup lang="ts">
-// composition api
 import {computed, ref} from 'vue'
 import router, { ROUTE } from './router'
-import WebSocket from './components/WebSocket.vue'
-import WebWorker from './components/WebWorker.vue'
-import SemanticTag from './components/SemanticTag.vue'
 
 const key = ref('')
 
@@ -27,21 +23,13 @@ const tabs = computed(() => {
   }
   return obj
 })
-
-function goPage() {
-  router.push('page')
-}
-
-function goHome() {
-  router.push('home')
-}
 </script>
 
 <template>
   <div v-for="item of tabs" @click="activeKey = item.name">{{item.name}}</div>
-<!--  <WebSocket></WebSocket>-->
-<!--  <WebWorker></WebWorker>-->
-  <SemanticTag></SemanticTag>
+<!--  1. router-view：vue-router的目标容器，组件的更新会渲染于此。-->
+<!--  2. keep-alive：缓存组件，并不会触发销毁生命周期，而是触发active和deactive.-->
+<!--  3. component配合slot：实现组件动态切换。-->
   <router-view v-slot="{ Component }" class="router-view">
     <keep-alive>
       <component :is="Component" />
