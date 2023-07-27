@@ -28,3 +28,7 @@ resolve: {
 7. webpack5 tree shaking不生效  
 原因：各种配置都检查过了都没用，最后搜到一篇帖子，原因是tsconfig里配置module使用的commonjs
 解决：将ts配置文件module改成es6
+
+8. 启动开发服务器报错webpack the server responded with a status of 404  
+原因：由于开发服务器本质也是打包之后将内容展示出来，所以打包配置output.publicPath属性也会影响server。  
+解决：将publicPath改成'/'改回来，但是此时打包路径就会出现问题，暂未找到解决办法。（TODO）

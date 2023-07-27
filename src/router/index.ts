@@ -6,6 +6,7 @@ export enum ROUTE {
     SEMANTIC_TAG = 'semantic-tag',
     WEB_SOCKET = 'web-socket',
     WEB_WORK = 'web-work',
+    LOAD_IMG_LAZY = 'load-img-lazy',
 }
 
 const routes = [
@@ -39,6 +40,11 @@ const routes = [
         path: `/${ROUTE.WEB_WORK}`,
         name: ROUTE.WEB_WORK,
         component: () => import(/* webpackChunkName: "web-work" */ '@/components/WebWorker.vue'),
+    },
+    {
+        path: `/${ROUTE.LOAD_IMG_LAZY}`,
+        name: ROUTE.LOAD_IMG_LAZY,
+        component: () => import(/* webpackChunkName: "load-img-lazy" */ '@/components/LoadImgLazy.vue'),
     },
 ]
 

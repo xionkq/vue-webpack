@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "es6",  // 设置目标ECMAScript版本。例如："es5", "es6", "es2015"等。
-    "module": "es6",  // 设置生成的模块系统。常用选项有"commonjs", "amd", "es6"。
+    "module": "es2022",  // 设置生成的模块系统。常用选项有"commonjs", "amd", "es6"。
+    "moduleResolution": "Node", // 指定解析模块的方式，若想兼容旧版本ts，使用Classic，否则使用Node
     "strict": true,  // 启用所有严格类型检查选项。
     "esModuleInterop": true,  // 允许在CommonJS和ES模块之间无缝导入。
     "noImplicitAny": true,  // 当未指定类型时，不允许隐式的any类型。
