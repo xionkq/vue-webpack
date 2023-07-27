@@ -21,6 +21,10 @@ resolve: {
 },
 ```
 
-6. Can't resolve '@/components/Page.vue'
+6. Can't resolve '@/components/Page.vue'  
 原因：ts可以解析@路径，但是webpack无法解析。  
 解决：因此需要在webpack中也配置上。
+
+7. webpack5 tree shaking不生效  
+原因：各种配置都检查过了都没用，最后搜到一篇帖子，原因是tsconfig里配置module使用的commonjs
+解决：将ts配置文件module改成es6

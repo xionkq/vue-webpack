@@ -2,14 +2,20 @@ const webpack = require('webpack');
 const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const config = {
     mode: 'development',
-    entry: './src/main.ts',
+    devtool: 'cheap-module-source-map',  //使用source map的这个模式（应该是优化dev模式下的打包代码，方便阅读）
+    entry: './webpack-test/main.ts',
     output: {
-        publicPath: '/',
+        publicPath: './', // 打包好的html文件引入js的路径变成相对路径而不是绝对路径
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'js/[name].[fullhash].js'
+    },
+    optimization: {
+        usedExports: true, // 启动标记功能，相当于启动tree-shaking
+        minimize: true, // 默认安装terser插件，需要启用此选项来删除无用代码
     },
     module: {
         rules: [
@@ -54,7 +60,8 @@ const config = {
         new HtmlWebpackPlugin({
             template: "index.html",
             filename: "index.html",
-        })
+        }),
+        new CleanWebpackPlugin(),
     ],
     devServer: {
         host: 'localhost',
