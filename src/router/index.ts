@@ -7,6 +7,7 @@ export enum ROUTE {
   WEB_SOCKET = 'web-socket',
   WEB_WORK = 'web-work',
   LOAD_IMG_LAZY = 'load-img-lazy',
+  INFINITE_SCROLL = 'infinite-scroll',
 }
 
 const routes = [
@@ -45,6 +46,11 @@ const routes = [
     path: `/${ROUTE.LOAD_IMG_LAZY}`,
     name: ROUTE.LOAD_IMG_LAZY,
     component: async () => await import(/* webpackChunkName: "load-img-lazy" */ '@/components/LoadImgLazy.vue')
+  },
+  {
+    path: `/${ROUTE.INFINITE_SCROLL}`,
+    name: ROUTE.INFINITE_SCROLL,
+    component: async () => await import(/* webpackChunkName: "infinite-scroll" */ '@/components/InfiniteScroll.vue')
   }
 ]
 
