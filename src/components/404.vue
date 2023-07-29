@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import {computed} from "vue";
+import { computed } from 'vue'
+import { switchLanguage } from '@/local'
 
 const route = useRoute()
 
@@ -10,6 +11,7 @@ const routerName = computed(() => {
 </script>
 
 <template>
+  <div @click="switchLanguage('zh-CN')">{{ $t('hello.helloWorld') }}</div>
   <div>{{ routerName }}</div>
 </template>
 

@@ -32,3 +32,7 @@ resolve: {
 8. 启动开发服务器报错webpack the server responded with a status of 404  
 原因：由于开发服务器本质也是打包之后将内容展示出来，所以打包配置output.publicPath属性也会影响server。  
 解决：将publicPath改成'/'改回来，但是此时打包路径就会出现问题，暂未找到解决办法。（TODO）
+
+9. Cannot find module './zh-CN.json'. Consider using '--resolveJsonModule' to import module with '.json' extension.  
+原因：ts无法识别或者导入json  
+解决：在tsconfig中加入"resolveJsonModule": true

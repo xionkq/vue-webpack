@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted, onUnmounted, ref} from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 let divRef: HTMLElement | null = null
 const count = ref(5)
@@ -21,9 +21,9 @@ onUnmounted(() => {
   }
 })
 
-function scrollHandle() {
+function scrollHandle () {
   if (divRef) {
-    const isScrolledToBottom = divRef.scrollTop + divRef.clientHeight >= divRef.scrollHeight;
+    const isScrolledToBottom = divRef.scrollTop + divRef.clientHeight >= divRef.scrollHeight
     if (isScrolledToBottom) {
       loading.value = true
       throttleGetData()
@@ -50,7 +50,7 @@ async function fakeData () {
   })
 }
 
-function debounce(func: (() => void) | (() => Promise<void>)) {
+function debounce (func: (() => void) | (() => Promise<void>)) {
   let timer: NodeJS.Timeout | null = null
   return () => {
     if (timer) {
@@ -64,7 +64,7 @@ function debounce(func: (() => void) | (() => Promise<void>)) {
   }
 }
 
-function throttle(func: (() => void) | (() => Promise<void>)) {
+function throttle (func: (() => void) | (() => Promise<void>)) {
   let timer: NodeJS.Timeout | null = null
   return () => {
     if (!timer) {
@@ -77,7 +77,7 @@ function throttle(func: (() => void) | (() => Promise<void>)) {
   }
 }
 
-function reset() {
+function reset () {
   tableData.value = [1, 2, 3, 4]
 }
 </script>

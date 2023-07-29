@@ -53,7 +53,7 @@ const routes = [
     component: async () => await import(/* webpackChunkName: "infinite-scroll" */ '@/components/InfiniteScroll.vue')
   },
   {
-    path: `/:notFountUrl(.*)*`,
+    path: '/:notFountUrl(.*)*',
     name: 'not-found',
     component: async () => await import(/* webpackChunkName: "not-found" */ '@/components/404.vue')
   }
@@ -67,7 +67,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.length === 0) {
-    next({name: 'not-found'})
+    next({ name: 'not-found' })
   } else {
     next()
   }

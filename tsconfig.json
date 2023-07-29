@@ -9,6 +9,7 @@
     "removeComments": true,  // 在生成的JavaScript中删除注释。
     "sourceMap": true,  // 生成相应的.map文件，用于在调试时映射到原始TypeScript代码。
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true, // 允许在ts文件中识别和导入json
     "paths": {  // 解析导入路径是，将路径中的@替换为目标路径
       "@/*": [
         "src/*"

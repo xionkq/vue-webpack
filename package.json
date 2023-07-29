@@ -32,6 +32,7 @@
     "sass-loader": "^13.3.2",
     "ts-loader": "^9.4.4",
     "vue": "^3.3.4",
+    "vue-i18n": "^9.2.2",
     "vue-loader": "^17.1.0",
     "vue-router": "^4.2.4",
     "vue-style-loader": "^4.1.3",
