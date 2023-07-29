@@ -1,5 +1,5 @@
 <script setup>
-import {reactive, ref} from "vue";
+import { reactive, ref } from 'vue'
 
 const message = reactive([])
 const inputValue = ref('')
@@ -12,11 +12,11 @@ ws.addEventListener('message', (e) => {
   message.push(e.data)
 })
 
-function send() {
+function send () {
   ws.send(inputValue.value)
 }
 
-function close() {
+function close () {
   ws.close()
 }
 </script>

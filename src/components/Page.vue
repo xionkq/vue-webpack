@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onBeforeMount, onMounted, ref} from "vue";
+import { onBeforeMount, onMounted, ref } from 'vue'
 
 const divRef = ref('')
 //

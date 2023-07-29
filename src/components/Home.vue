@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import {nextTick, onActivated, onBeforeMount, onDeactivated, onMounted, reactive, ref, getCurrentInstance} from "vue";
-import {useCounterStore} from "@/store/counter";
+import { nextTick, onActivated, onBeforeMount, onDeactivated, onMounted, reactive, ref, getCurrentInstance } from 'vue'
+import { useCounterStore } from '@/store/counter'
 
-let divRef = ref('')
+const divRef = ref('')
 const message = ref('home')
 
 // // 钩子函数
@@ -36,7 +36,7 @@ onMounted(() => {
 
 const a = reactive({
   b: ref(1),
-  c: 2,
+  c: 2
 })
 
 const counterStore = useCounterStore()

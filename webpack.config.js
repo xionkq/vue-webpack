@@ -3,6 +3,7 @@ const path = require('path');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin');
 
 const config = {
     mode: 'development',
@@ -67,6 +68,11 @@ const config = {
         new HtmlWebpackPlugin({
             template: "index.html",
             filename: "index.html",
+        }),
+        new ESLintPlugin({
+            fix: true, /* 自动帮助修复 */
+            extensions: ['js', 'json', 'ts', 'vue'],
+            exclude: 'node_modules'
         }),
         // new CleanWebpackPlugin(), // 用于打包时，将上一次打包文件删除
     ],

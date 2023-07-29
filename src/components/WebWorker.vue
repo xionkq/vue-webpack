@@ -1,6 +1,6 @@
 <script setup>
-import {ref, watch} from "vue";
-import Worker from '../script/test.worker.js'
+import { ref, watch } from 'vue'
+import Worker from '../script/test.worker.ts'
 
 const number1 = ref(0)
 const number2 = ref(0)
