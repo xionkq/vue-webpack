@@ -33,7 +33,7 @@ const config = {
                 use: ['vue-style-loader', 'css-loader', 'sass-loader']
             },
             {
-                test: /\.worker.js$/,
+                test: /\.worker.(js|ts)$/,
                 use: {
                     loader: 'worker-loader',
                     options: { inline: 'no-fallback' }
