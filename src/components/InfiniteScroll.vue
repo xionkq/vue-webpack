@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import {onMounted, onUnmounted, ref} from 'vue'
 
 let divRef: HTMLElement | null = null
 const count = ref(5)
@@ -11,17 +11,25 @@ const throttleGetData = throttle(() => getData())
 
 onMounted(() => {
   if (divRef) {
-    divRef.addEventListener('scroll', function (e) {
-      if (divRef) {
-        const isScrolledToBottom = divRef.scrollTop + divRef.clientHeight >= divRef.scrollHeight;
-        if (isScrolledToBottom) {
-          loading.value = true
-          throttleGetData()
-        }
-      }
-    })
+    divRef.addEventListener('scroll', scrollHandle)
   }
 })
+
+onUnmounted(() => {
+  if (divRef) {
+    divRef.removeEventListener('scroll', scrollHandle)
+  }
+})
+
+function scrollHandle() {
+  if (divRef) {
+    const isScrolledToBottom = divRef.scrollTop + divRef.clientHeight >= divRef.scrollHeight;
+    if (isScrolledToBottom) {
+      loading.value = true
+      throttleGetData()
+    }
+  }
+}
 
 async function getData () {
   try {

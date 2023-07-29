@@ -51,6 +51,11 @@ const routes = [
     path: `/${ROUTE.INFINITE_SCROLL}`,
     name: ROUTE.INFINITE_SCROLL,
     component: async () => await import(/* webpackChunkName: "infinite-scroll" */ '@/components/InfiniteScroll.vue')
+  },
+  {
+    path: `/:notFountUrl(.*)*`,
+    name: 'not-found',
+    component: async () => await import(/* webpackChunkName: "not-found" */ '@/components/404.vue')
   }
 ]
 
@@ -58,6 +63,14 @@ const router = createRouter({
   // 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
   history: createWebHashHistory(),
   routes // `routes: routes` 的缩写
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.length === 0) {
+    next({name: 'not-found'})
+  } else {
+    next()
+  }
 })
 
 export default router
