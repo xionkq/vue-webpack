@@ -8,6 +8,7 @@ export enum ROUTE {
   WEB_WORK = 'web-work',
   LOAD_IMG_LAZY = 'load-img-lazy',
   INFINITE_SCROLL = 'infinite-scroll',
+  DOM_OPERATION = 'dom-operation',
 }
 
 const routes = [
@@ -51,6 +52,11 @@ const routes = [
     path: `/${ROUTE.INFINITE_SCROLL}`,
     name: ROUTE.INFINITE_SCROLL,
     component: async () => await import(/* webpackChunkName: "infinite-scroll" */ '@/components/InfiniteScroll.vue')
+  },
+  {
+    path: `/${ROUTE.DOM_OPERATION}`,
+    name: ROUTE.DOM_OPERATION,
+    component: async () => await import(/* webpackChunkName: "dom-operation" */ '@/components/DomOperation.vue')
   },
   {
     path: '/:notFountUrl(.*)*',

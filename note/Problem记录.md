@@ -36,3 +36,7 @@ resolve: {
 9. Cannot find module './zh-CN.json'. Consider using '--resolveJsonModule' to import module with '.json' extension.  
 原因：ts无法识别或者导入json  
 解决：在tsconfig中加入"resolveJsonModule": true
+
+10. ts的if语法判断ref值不为null，但是结果依然报错  
+原因：查配置，差vue版本，查ts版本，终于发现使ts版本问题。  
+解决：目前使用ts4没问题，使用ts5有问题。（TODO）
