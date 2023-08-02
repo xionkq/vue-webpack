@@ -9,6 +9,7 @@ export enum ROUTE {
   LOAD_IMG_LAZY = 'load-img-lazy',
   INFINITE_SCROLL = 'infinite-scroll',
   DOM_OPERATION = 'dom-operation',
+  ABOUT_REQUEST = 'about-request',
 }
 
 const routes = [
@@ -57,6 +58,11 @@ const routes = [
     path: `/${ROUTE.DOM_OPERATION}`,
     name: ROUTE.DOM_OPERATION,
     component: async () => await import(/* webpackChunkName: "dom-operation" */ '@/components/DomOperation.vue')
+  },
+  {
+    path: `/${ROUTE.ABOUT_REQUEST}`,
+    name: ROUTE.ABOUT_REQUEST,
+    component: async () => await import(/* webpackChunkName: "about-request" */ '@/components/AboutRequest.vue')
   },
   {
     path: '/:notFountUrl(.*)*',

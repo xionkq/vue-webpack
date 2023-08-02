@@ -40,3 +40,7 @@ resolve: {
 10. ts的if语法判断ref值不为null，但是结果依然报错  
 原因：查配置，差vue版本，查ts版本，终于发现使ts版本问题。  
 解决：目前使用ts4没问题，使用ts5有问题。（TODO）
+
+11. apollo编译报错，报错为找不到module react  
+原因：apollo依赖react，需要将react添加到项目中。  
+解决：还有一种解决办法是，从'@apollo/client/core'中导入需要的函数，而不是'@apollo/client'.

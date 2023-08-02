@@ -58,7 +58,7 @@ const config = {
         ]
     },
     resolve: {
-        extensions: ['.ts', '.tsx', '.js'],  // 模块解析时尝试自动解析的文件扩展名，因此在模块导入时可以省略以下扩展名
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],  // 模块解析时尝试自动解析的文件扩展名，因此在模块导入时可以省略以下扩展名
         alias: {
             '@': path.resolve(__dirname, 'src'), // 将@别名指向项目的src目录
         },
